@@ -9,8 +9,8 @@
 
 int main()
 {
-    int max_int = 100000;
-    int listSize = 10000;
+    int max_int = 10000;
+    int listSize = 1000000;
     std::chrono::_V2::system_clock::time_point start, end;
     std::chrono::milliseconds duration; 
     srand(time(0));
@@ -22,6 +22,9 @@ int main()
         std::cout << "List already sorted." << std::endl;
         return 1;
     }
+    std::cout << "Sorting Unordered List of Size " << listSize << ": " << std::endl;
+    std::cout << "\tGenerated from random #s (0," << max_int << ")" << std::endl;
+    std::cout << std::endl;
     //print(original_list);
     std::vector<int> list1 = original_list;
     std::vector<int> list2 = original_list;
@@ -31,7 +34,7 @@ int main()
     std::vector<int> list6 = original_list;
     std::vector<int> list7 = original_list;
     std::vector<int> list8 = original_list;
-
+/*
     std::cout << "INSERTION SORT" << std::endl;
     start = std::chrono::high_resolution_clock::now();
     insertionSort(list1);
@@ -72,7 +75,7 @@ int main()
     if (!isSorted(list5)) {
         std::cout << "Merge Sort Failed" << std::endl;
     }
-
+*/
     std::cout << "QUICK SORT" << std::endl;
     start = std::chrono::high_resolution_clock::now();
     quickSort(list4, 0, list4.size() - 1);
@@ -111,6 +114,9 @@ int main()
     std::cout << "\tBucket: " << duration.count() << "ms\n" << std::endl;
     if (!isSorted(list8)) {
         std::cout << "Bucket Sort Failed" << std::endl;
+    }
+    if (!(list8 == list4)) {
+        std::cout << "UH OH" << std::endl;
     }
     
     std::cout << std::endl;
