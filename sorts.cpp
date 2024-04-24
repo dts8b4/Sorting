@@ -209,10 +209,15 @@ void countingSort(std::vector<int>& list)
 void bucketSort(std::vector<int>& list)
 {
     int num_buckets = sqrt(list.size());
-    std::vector<std::vector<int>> buckets(num_buckets);
-
     int min = getMin(list);
     int max = getMax(list);
+    if (max - min == 0) {return;}
+    if (num_buckets > (max - min)) {
+        num_buckets = max - min;
+    }
+    std::vector<std::vector<int>> buckets(num_buckets);
+
+    
     int bucket_size = (max - min + 1) / num_buckets;
     
     for (int element : list) {
@@ -223,7 +228,7 @@ void bucketSort(std::vector<int>& list)
         buckets.at(bucket_index).push_back(element);
     }
     for (std::vector<int>& bucket : buckets) {
-        insertionSort(bucket);
+        radixSort(bucket);
     }
     
     std::vector<int> sorted;
