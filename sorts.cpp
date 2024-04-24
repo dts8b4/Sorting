@@ -223,7 +223,7 @@ void bucketSort(std::vector<int>& list)
         buckets.at(bucket_index).push_back(element);
     }
     for (std::vector<int>& bucket : buckets) {
-        countingSort(bucket);
+        insertionSort(bucket);
     }
     
     std::vector<int> sorted;

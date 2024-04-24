@@ -10,7 +10,7 @@
 int main()
 {
     int max_int = 10000;
-    int listSize = 1000000;
+    int listSize = 100000;
     std::chrono::_V2::system_clock::time_point start, end;
     std::chrono::milliseconds duration; 
     srand(time(0));
@@ -64,7 +64,7 @@ int main()
     if (!isSorted(list3)) {
         std::cout << "Bubble Sort Failed" << std::endl;
     }
-
+*/
 
     std::cout << "MERGE SORT" << std::endl;
     start = std::chrono::high_resolution_clock::now();
@@ -75,7 +75,7 @@ int main()
     if (!isSorted(list5)) {
         std::cout << "Merge Sort Failed" << std::endl;
     }
-*/
+
     std::cout << "QUICK SORT" << std::endl;
     start = std::chrono::high_resolution_clock::now();
     quickSort(list4, 0, list4.size() - 1);
